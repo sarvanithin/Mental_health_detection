@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <title>Mental Health Project</title>
+  <!-- Update the showModules function -->
+  <!-- Update the showModules function -->
+  <script>
+    function showModules(event) {
+        event.preventDefault();
+ 
+        var username = document.getElementById('username').value;
+ 
+        if (username.trim() !== '') {
+            $.ajax({
+                type: 'POST',
+                url: '/submit',  // Update the URL to /submit
+                data: { username: username },
+                success: function (data) {
+                    document.getElementById('modulesContainer').style.display = 'block';
+                },
+                error: function (error) {
+                    console.error('Error creating table:', error);
+                }
+            });
+        }
+    }
+  </script>
+ 
+
+  
+  
+</head>
+
+
+
+<body>
+	<!-- <div id="particles-js"></div> -->
+
+<div class="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 dark:from-purple-900 dark:via-pink-700 dark:to-red-700 overflow-hidden relative"><header class="w-full py-4 px-6 flex justify-between items-center bg-purple-500 dark:bg-purple-700 shadow-md"><div class="text-white text-2xl font-bold">Mental Health Detection</div><nav class="flex space-x-4 items-center"><div class="relative"><input class="rounded-md h-10 pl-10 pr-4 w-64 dark:bg-gray-800 dark:text-white" placeholder="Search..." type="text"><div class="absolute left-2 top-1/2 transform -translate-y-1/2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6 text-gray-400 dark:text-gray-500"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></div><a class="text-white hover:text-purple-200" href="#services">Services</a><a class="text-white hover:text-purple-200" href="/blogs">Blogs</a><a class="text-white hover:text-purple-200" href="/about_us">About Us</a><a class="text-white hover:text-purple-200" href="#">Login</a></nav></header><section class="w-full py-12 md:py-24 lg:py-32"><div class="container px-4 md:px-6"><div class="flex flex-col items-center space-y-4 text-center"><div class="space-y-2"><div class="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm dark:bg-green-800">
+            Welcome to our Mental Health Portal
+          </div><h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-white">
+            Your Mental Health Matters
+          </h1><p class="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400 text-white">
+            We provide a range of services and analysis tests to help you understand and improve your mental health.
+          </p></div></div></div></section><section id="services"class="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"><form action="/submit" method="post" class="flex items-center justify-center mb-8" onclick="showModules(event)"><div class="rounded-md bg-white dark:bg-gray-700 shadow-md p-4 flex items-center"><input type="text" id="username" name="username" placeholder="Submit a username" class="rounded-l-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:text-gray-200 dark:bg-gray-800" required><button type="submit" onclick="showModules(event)" class="rounded-r-md bg-purple-500 text-white py-2 px-4 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500">Submit</button></div></form> <div id="modulesContainer" class="container px-4 md:px-6" style="display: none;"><div class="container px-4 md:px-6"><div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"><a class="group" href="/songs" onclick="songs()"><div class="rounded-lg text-card-foreground shadow-sm bg-purple-200 dark:bg-purple-800 transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg border-2 border-transparent hover:border-purple-500" data-v0-t="card"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">Detecting through songs</h3></div><div class="p-6">
+              Personalized therapy sessions with experienced professionals.
+            </div></div></a>
+            <a class="group" href="/passage_pred" onclick="sentiment_analysis()"><div class="rounded-lg text-card-foreground shadow-sm bg-pink-300 dark:bg-pink-700 transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg border-2 border-transparent hover:border-pink-400" data-v0-t="card"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">Sentiment Analysis </h3></div><div class="p-6">
+              Personalized therapy sessions with experienced professionals.
+
+            </div></div></a><a class="group" href="/food_analysis" onclick="food_analysis1()"><div class="rounded-lg text-card-foreground shadow-sm bg-red-400 dark:bg-red-600 transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg border-2 border-transparent hover:border-red-300" data-v0-t="card"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">Food Screening </h3></div><div class="p-6">
+                            Personalized therapy sessions with experienced professionals.
+            </div></div></a>
+            
+            
+            <a class="group" href="/social" onclick="social_pred()"><div class="rounded-lg text-card-foreground shadow-sm bg-purple-200 dark:bg-purple-800 transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg border-2 border-transparent hover:border-purple-500" data-v0-t="card"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">Predicting Social Anxiety  </h3></div><div class="p-6">
+ Personalized therapy sessions with experienced professionals.            </div></div></a><a class="group" href="/face_recog" onclick="face_recog()"><div class="rounded-lg text-card-foreground shadow-sm bg-pink-300 dark:bg-pink-700 transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg border-2 border-transparent hover:border-pink-400" data-v0-t="card"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">Facial Recognition </h3></div><div class="p-6">
+                            Personalized therapy sessions with experienced professionals.
+
+            </div></div></a><a class="group" href="/voice" onclick="voice_index()"><div class="rounded-lg text-card-foreground shadow-sm bg-red-400 dark:bg-red-600 transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg border-2 border-transparent hover:border-red-300" data-v0-t="card"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">Voice Recognition </h3></div><div class="p-6">
+              Personalized therapy sessions with experienced professionals.
+            </div></div></a>
+          
+            <a class="group" href="/social" onclick="predictSocialAnxiety1()"><div class="rounded-lg text-card-foreground shadow-sm bg-purple-200 dark:bg-purple-800 transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg border-2 border-transparent hover:border-purple-500" data-v0-t="card"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">CHILDREN  </h3></div><div class="p-6">
+              Personalized therapy sessions with experienced professionals.            </div></div></a><a class="group" href="#"><div class="rounded-lg text-card-foreground shadow-sm bg-pink-300 dark:bg-pink-700 transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg border-2 border-transparent hover:border-pink-400" data-v0-t="card"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">ADULT</h3></div><div class="p-6">
+Personalized therapy sessions with experienced professionals.
+</div></div></a>
+<a class="group" href="/emp_pred" onclick="emp_pred()"><div class="rounded-lg text-card-foreground shadow-sm bg-red-400 dark:bg-red-600 transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg border-2 border-transparent hover:border-red-300" data-v0-t="card"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">MIDDLE AGE </h3></div><div class="p-6">
+  Personalized therapy sessions with experienced professionals.
+</div></div></a>
+
+<a class="group" href="/ocd" onclick="ocd()"><div class="rounded-lg text-card-foreground shadow-sm bg-purple-200 dark:bg-purple-800 transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg border-2 border-transparent hover:border-purple-500" data-v0-t="card"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">OCD </h3></div><div class="p-6">
+  Personalized therapy sessions with experienced professionals.            </div></div></a>
+
+  <a class="group" href="/bipolar_predict" onclick="bipolar_predict()"><div class="rounded-lg text-card-foreground shadow-sm bg-pink-300 dark:bg-pink-700 transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg border-2 border-transparent hover:border-pink-400" data-v0-t="card"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">BIPOLAR DISORDER</h3></div><div class="p-6">
+    Personalized therapy sessions with experienced professionals.
+    </div></div></a>
+    <a href="/anxiety_stress" onclick="anxiety_stress()">
+      <div class="rounded-lg text-card-foreground shadow-sm bg-red-400 dark:bg-red-600 transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg border-2 border-transparent hover:border-red-300" data-v0-t="card">
+          <div class="flex flex-col space-y-1.5 p-6">
+              <h3 class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">ANXIETY AND STRESS</h3>
+              <p>Personalized therapy sessions with experienced professionals.</p>
+          </div>
+      </div>
+  </a>
+  
+
+<a class="group" href="#" onclick="predictSocialAnxiety()"><div class="rounded-lg text-card-foreground shadow-sm bg-purple-200 dark:bg-purple-800 transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg border-2 border-transparent hover:border-purple-500" data-v0-t="card"><div class="flex flex-col space-y-1.5 p-6"><h3 class="text-2xl font-semibold whitespace-nowrap leading-none tracking-tight">PHYSICAL ACTIVITY  </h3></div><div class="p-6">
+  Personalized therapy sessions with experienced professionals.            </div></div></a>
+
+
+          </div>
+        </div>
+        </div>
+        
+        
+        
+        
+        </section>
+          
+          
+          
+          <section class="w-full py-12 md:py-24 lg:py-32">
+    <div class="container px-4 md:px-6">
+      <div class="flex flex-col items-center space-y-4 text-center">
+        <div class="space-y-2">
+          <h2 class="text-3xl font-bold tracking-tighter md:text-4xl/tight text-white">
+            Ready to start your journey?
+          </h2>
+          <p class="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400 text-white">
+            Join us today and take the first step towards improving your mental health.
+          </p>
+        </div>
+        <div class="flex flex-col gap-2 min-[400px]:flex-row">
+          <a
+            class="inline-flex h-10 items-center justify-center rounded-md bg-green-500 px-8 text-sm font-medium text-gray-50 shadow dark:bg-gray-50 dark:text-gray-900"
+            href="#"
+          >
+            Join Now
+          </a>
+          <a
+            class="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 bg-white px-8 text-sm font-medium shadow-sm dark:border-gray-800 dark:bg-gray-950 dark:text-gray-50"
+            href="#"
+          >
+            Learn More
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="container">
+  <div class="chatbox">
+      <div class="chatbox__support">
+          <div class="chatbox__header">
+              <div class="chatbox__image--header">
+                  <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
+              </div>
+              <div class="chatbox__content--header">
+                  <h4 class="chatbox__heading--header">Chat support</h4>
+                  <p class="chatbox__description--header">Hi. My name is Sam. How can I help you?</p>
+              </div>
+          </div>
+          <div class="chatbox__messages" id="chatboxMessages">
+              <div></div>
+          </div>
+          <div class="chatbox__footer">
+              <input type="text" id="userInput" placeholder="Write a message...">
+              <button class="chatbox__send--footer send__button" onclick="sendMessage()">Send</button>
+          </div>
+      </div>
+      <div class="chatbox__button">
+          <button id="chatboxToggleBtn">
+              <img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" />
+          </button>
+      </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const chatbox = document.querySelector('.chatbox__support');
+    const chatboxToggleBtn = document.getElementById('chatboxToggleBtn');
+    const userInput = document.getElementById('userInput');
+
+    chatboxToggleBtn.addEventListener('click', function () {
+        chatbox.classList.toggle('chatbox--active');
+    });
+
+    // Add event listener for search input
+    userInput.addEventListener('input', function () {
+        const searchTerm = userInput.value.trim().toLowerCase();
+        performSearch(searchTerm);
+    });
+    function performSearch(searchTerm) {
+        // Perform your search logic here
+        // You can hide/show elements based on the search term
+        // For example, toggle a class based on whether the content includes the search term
+        const cards = document.querySelectorAll('.rounded-lg[data-v0-t="card"]');
+        cards.forEach(card => {
+            const cardContent = card.textContent.trim().toLowerCase();
+            if (cardContent.includes(searchTerm)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+      }
+  });
+
+
+  function sendMessage() {
+      const userInput = document.getElementById('userInput').value;
+      if (userInput.trim() !== '') {
+          // Add user message to chatbox
+          appendMessage('user', userInput);
+
+          // Send user message to backend for processing
+          $.ajax({
+              type: 'POST',
+              url: '/send_message',
+              data: { user_input: userInput },
+              success: function (data) {
+                  const botResponse = data['assistant_response'];
+                  // Add bot response to chatbox
+                  appendMessage('assistant', botResponse);
+              }
+          });
+
+          // Clear the input field after sending
+          document.getElementById('userInput').value = '';
+      }
+  }
+
+  function appendMessage(role, content) {
+      const chatboxMessages = document.getElementById('chatboxMessages');
+      const messageContainer = document.createElement('div');
+      messageContainer.className = `messages__item messages__item--${role}`;
+      messageContainer.textContent = content;
+
+      // Prepend the new message container instead of appending
+      chatboxMessages.insertBefore(messageContainer, chatboxMessages.firstChild);
+  }
+</script>
+
+
+
+<script>
+
+('particles-js', {
+    particles: {
+      number: {
+        value: 100,
+        density: {
+          enable: true,
+          value_area: 800,
+        },
+      },
+      color: {
+        value: '#ffffff',
+      },
+      shape: {
+        type: 'circle',
+        stroke: {
+          width: 0,
+          color: '#000000',
+        },
+        polygon: {
+          nb_sides: 5,
+        },
+        image: {
+          src: 'img/github.svg',
+          width: 100,
+          height: 100,
+        },
+      },
+      opacity: {
+        value: 0.5,
+        random: false,
+        anim: {
+          enable: false,
+          speed: 1,
+          opacity_min: 0.1,
+          sync: false,
+        },
+      },
+      size: {
+        value: 3,
+        random: true,
+        anim: {
+          enable: false,
+          speed: 40,
+          size_min: 0.1,
+          sync: false,
+        },
+      },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: '#ffffff',
+        opacity: 0.4,
+        width: 1,
+      },
+      move: {
+        enable: true,
+        speed: 6,
+        direction: 'none',
+        random: false,
+        straight: false,
+        out_mode: 'out',
+        bounce: false,
+        attract: {
+          enable: false,
+          rotateX: 600,
+          rotateY: 1200,
+        },
+      },
+    },
+    interactivity: {
+      detect_on: 'canvas',
+      events: {
+        onhover: {
+          enable: true,
+          mode: 'repulse',
+        },
+        onclick: {
+          enable: true,
+          mode: 'push',
+        },
+        resize: true,
+      },
+      modes: {
+        grab: {
+          distance: 400,
+          line_linked: {
+            opacity: 1,
+          },
+        },
+        bubble: {
+          distance: 400,
+          size: 40,
+          duration: 2,
+          opacity: 8,
+          speed: 3,
+        },
+        repulse: {
+          distance: 200,
+          duration: 0.4,
+        },
+        push: {
+          particles_nb: 4,
+        },
+        remove: {
+          particles_nb: 2,
+        },
+      },
+    },
+    retina_detect: true,
+  });
+</script>
+
+</body>
+</html>

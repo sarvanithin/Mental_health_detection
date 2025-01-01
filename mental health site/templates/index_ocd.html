@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Assessment</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .question-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .question {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .question:hover {
+            transform: scale(1.05);
+        }
+
+        .question label {
+            display: block;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .options {
+            display: none;
+        }
+
+        .question:hover .options {
+            display: block;
+        }
+
+        .options select,
+        .options input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 dark:from-purple-900 dark:via-pink-700 dark:to-red-700 relative">
+
+    <!-- Navigation -->
+    <nav class="bg-indigo-600 text-white p-4">
+        <div class="container mx-auto">
+            <center>
+                <a class="text-2xl font-bold" href="/">Mental Health Assessment</a>
+            </center>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <div class="max-w-2xl mx-auto mt-8 text-black">
+        <form action="/predict" method="post" class="max-w-md mx-auto p-8 rounded shadow-md">
+
+            <!-- Question Container -->
+            <div class="question-container">
+
+                <!-- Question 1 -->
+                <div class="question bg-blue-200 p-4 rounded-md">
+                    <label for="q1" class="block text-lg font-medium text-gray-800 mb-2">How Much Time do you spend on obsessive thoughts?</label>
+                    <select name="q1" id="q1" required class="options">
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question bg-green-200 p-4 rounded-md">
+                    <label for="q2" class="block text-lg font-medium text-gray-800 mb-2">How much do your obsessive thoughts interfere with your personal, social, or work life?</label>
+                    <select name="q2" id="q2" required class="options">
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question bg-yellow-200 p-4 rounded-md">
+                    <label for="q3" class="block text-lg font-medium text-gray-800 mb-2">How much do your obsessive thoughts distress you?</label>
+                    <select name="q3" id="q3" required class="options">
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="question bg-pink-200 p-4 rounded-md">
+                    <label for="q4" class="block text-lg font-medium text-gray-800 mb-2">How hard do you try to resist your obsessions?</label>
+                    <select name="q4" id="q4" required class="options">
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="question bg-purple-200 p-4 rounded-md">
+                    <label for="q5" class="block text-lg font-medium text-gray-800 mb-2">How much control do you have over your obsessive thoughts?</label>
+                    <select name="q5" id="q5" required class="options">
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="question bg-blue-300 p-4 rounded-md">
+                    <label for="q6" class="block text-lg font-medium text-gray-800 mb-2">How much time do you spend performing compulsive behaviors?</label>
+                    <select name="q6" id="q6" required class="options">
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="question bg-green-300 p-4 rounded-md">
+                    <label for="q7" class="block text-lg font-medium text-gray-800 mb-2">How much do your compulsive behaviors interfere with your personal, social, or work life?</label>
+                    <select name="q7" id="q7" required class="options">
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Question 8 -->
+                <div class="question bg-yellow-300 p-4 rounded-md">
+                    <label for="q8" class="block text-lg font-medium text-gray-800 mb-2">How anxious would you feel if you were prevented from performing your compulsive behaviors?</label>
+                    <select name="q8" id="q8" required class="options">
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Question 9 -->
+                <div class="question bg-pink-300 p-4 rounded-md">
+                    <label for="q9" class="block text-lg font-medium text-gray-800 mb-2">How hard do you try to resist your compulsive behaviors?</label>
+                    <select name="q9" id="q9" required class="options">
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Question 10 -->
+                <div class="question bg-purple-300 p-4 rounded-md">
+                    <label for="q10" class="block text-lg font-medium text-gray-800 mb-2">How much control do you have over your compulsive behaviors?</label>
+                    <select name="q10" id="q10" required class="options">
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Question 11 -->
+                <div class="question bg-blue-400 p-4 rounded-md">
+                    <label for="q11" class="block text-lg font-medium text-gray-800 mb-2">Do you worry excessively about dirt, germs, or chemicals?</label>
+                    <select name="q11" id="q11" required class="options">
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Question 12 -->
+                <div class="question bg-green-400 p-4 rounded-md">
+                    <label for="q12" class="block text-lg font-medium text-gray-800 mb-2">Are you constantly worried that something bad will happen because you forgot something important, like locking the door or turning off appliances?</label>
+                    <select name="q12" id="q12" required class="options">
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Question 13 -->
+                <div class="question bg-yellow-400 p-4 rounded-md">
+                    <label for="q13" class="block text-lg font-medium text-gray-800 mb-2">Do you experience shortness of breath?</label>
+                    <select name="q13" id="q13" required class="options">
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Question 14 -->
+                <div class="question bg-pink-400 p-4 rounded-md">
+                    <label for="q14" class="block text-lg font-medium text-gray-800 mb-2">Do you have difficulty swallowing?</label>
+                    <select name="q14" id="q14" required class="options">
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Question 15 -->
+                <div class="question bg-purple-400 p-4 rounded-md">
+                    <label for="q15" class="block text-lg font-medium text-gray-800 mb-2">Do you have a fear of vomiting?</label>
+                    <select name="q15" id="q15" required class="options">
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Question 16 -->
+                <div class="question bg-blue-500 p-4 rounded-md">
+                    <label for="q16" class="block text-lg font-medium text-gray-800 mb-2">Do you experience dizziness or lightheadedness?</label>
+                    <select name="q16" id="q16" required class="options">
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Question 17 -->
+                <div class="question bg-green-500 p-4 rounded-md">
+                    <label for="Age" class="block text-lg font-medium text-gray-800 mb-2">Age</label>
+                    <input type="number" name="Age" id="Age" required class="options">
+                </div>
+
+                <!-- Question 18 -->
+                <div class="question bg-yellow-500 p-4 rounded-md">
+                    <label class="block text-lg font-medium text-gray-800 mb-2">Gender</label>
+                    <div class="flex items-center options">
+                        <input type="radio" id="male" name="Gender" value="0" required class="mr-1">
+                        <label for="male" class="mr-4">Male</label>
+                        
+                        <input type="radio" id="female" name="Gender" value="1" required class="mr-1">
+                        <label for="female" class="mr-4">Female</label>
+                        
+                        <input type="radio" id="other" name="Gender" value="2" required class="mr-1">
+                        <label for="other">Other</label>
+                    </div>
+                </div>
+
+                <!-- Question 19 -->
+                <div class="question bg-pink-500 p-4 rounded-md">
+                    <label for="Education" class="block text-lg font-medium text-gray-800 mb-2">Education</label>
+                    <select name="Education" id="Education" required class="options">
+                        <option value="0">High school</option>
+                        <option value="1">Some college</option>
+                        <option value="2">Bachelor's degree</option>
+                        <option value="3">Postgraduate</option>
+                    </select>
+                </div>
+
+                <!-- Question 20 -->
+                <div class="question bg-purple-500 p-4 rounded-md">
+                    <label for="Country" class="block text-lg font-medium text-gray-800 mb-2">Country</label>
+                    <select name="Country"  id="Country" required class="options">
+                        <option value="0">USA</option>
+                        <option value="1">UK</option>
+                        <option value="2">Canada</option>
+                        <option value="3">Australia</option>
+                        <option value="4">Other</option>
+                    </select>
+                </div>
+
+                <div class="mt-8 text-center text-xl font-bold">
+                    {% if prediction %}
+                    <p class="text-white-500">Prediction: {{ prediction }}</p>
+                    {% endif %}
+                </div>
+
+                <!-- Continue adding more questions as needed -->
+
+            </div>
+
+            <button type="submit" class="bg-indigo-600 text-white p-2 rounded-md">Submit</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

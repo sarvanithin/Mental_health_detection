@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sign-Up</title>
+</head>
+<body>
+<div class="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 dark:from-purple-900 dark:via-pink-700 dark:to-red-700 overflow-hidden relative">
+  <header class="w-full py-4 px-6 flex justify-between items-center bg-purple-500 dark:bg-purple-700 shadow-md">
+    <div class="text-white text-2xl font-bold">Mental Health Detection</div>
+    <nav class="flex space-x-4 items-center">
+      <div class="relative">
+        <input
+          class="rounded-md h-10 pl-10 pr-4 w-64 dark:bg-gray-800 dark:text-white"
+          placeholder="Search Blogs..."
+          type="text"
+        />
+        <div class="absolute left-2 top-1/2 transform -translate-y-1/2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            class="h-6 w-6 text-gray-400 dark:text-gray-500"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            ></path>
+          </svg>
+        </div>
+      </div>
+      <a class="text-white hover:text-purple-200" href="#">
+        Services
+      </a>
+      <a class="text-white hover:text-purple-200" href="#">
+        Blogs
+      </a>
+      <a class="text-white hover:text-purple-200" href="#">
+        About Us
+      </a>
+      <a class="text-white hover:text-purple-200" href="#">
+        Login
+      </a>
+    </nav>
+  </header>
+  <div class="w-full py-12 md:py-24 lg:py-32">
+    <div class="container px-4 md:px-6">
+      <div class="flex items-center justify-center py-12">
+        <div class="mx-auto w-[350px] space-y-6">
+          <div class="space-y-2 text-center">
+            <h1 class="text-3xl font-bold">Sign Up</h1>
+            <p class="text-gray-500 dark:text-gray-400">Enter your information to create an account</p>
+          </div>
+          <div class="space-y-4">
+            <div class="space-y-2">
+              <label
+                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for="email"
+              >
+                Email
+              </label>
+              <input
+                class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                id="email"
+                placeholder="johndoe@example.com"
+                required=""
+                type="email"
+              />
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="space-y-2">
+                <label
+                  class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  for="password"
+                >
+                  Password
+                </label>
+                <input
+                  class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  id="password"
+                  required=""
+                  type="password"
+                />
+              </div>
+              <div class="space-y-2">
+                <label
+                  class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  for="re-enter-password"
+                >
+                  Re-enter Password
+                </label>
+                <input
+                  class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  id="re-enter-password"
+                  required=""
+                  type="password"
+                />
+              </div>
+            </div>
+            <button
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full"
+              type="submit"
+            >
+              Sign Up
+            </button>
+          </div>
+          <!-- <div class="mt-4 text-center text-sm">
+            Already have an account?{" "}
+            <a class="underline" href="#">
+              Login
+            </a>
+          </div> -->
+          <div class="mt-4 text-center text-sm">
+    Already have an account? <a class="underline" href="{{ url_for('login') }}">Login</a>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

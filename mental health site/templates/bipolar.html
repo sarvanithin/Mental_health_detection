@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- <!DOCTYPE html>
+<html lang="en"> -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+        
+        <title>Bipolar Prediction</title>
+    </head>
+
+    <body class="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 dark:from-purple-900 dark:via-pink-700 dark:to-red-700 overflow-auto relative font-sans">
+
+        <header class="w-full py-4 px-6 flex justify-between items-center bg-purple-500 dark:bg-purple-700 shadow-md">
+            <div class="text-white text-2xl font-bold">Bipolar Prediction</div>
+            <nav class="flex space-x-4 items-center">
+                <!-- Include navigation links if needed -->
+            </nav>
+        </header>
+    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Bipolar Prediction</title>
+    <style>
+        .question-set {
+            display: none;
+        }
+
+        .question-set.active {
+            display: block;
+        }
+
+        /* Custom background color class with lighter shades */
+        .bg-gradient {
+            background: linear-gradient(to right, lavender, lightpink, lightsalmon);
+        }
+
+        /* Custom header styling */
+        header {
+            width: 100%;
+            padding: 1rem;
+            background-color: #6f42c1;
+            color: white;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+    
+    
+
+<body class="min-h-screen bg-gradient overflow-auto relative font-sans">
+
+
+    <div class="container mt-5">
+        <head><h2>Bipolar Prediction</h2></head>
+        <form id="predictionForm" method="post" action="/predict_bipolar">
+            <!-- Set 1 -->
+            <div class="question-set active" id="set1">
+                <h5>Set 1</h5>
+                <!-- Age Input -->
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" class="form-control" id="age" name="age" required>
+                </div>
+
+                <!-- Gender Input -->
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select class="form-control" id="gender" name="gender" required>
+                        <option value="0">Male</option>
+                        <option value="1">Female</option>
+                        <option value="2">Other</option>
+                    </select>
+                </div>
+
+                <!-- Education Input -->
+                <div class="form-group">
+                    <label for="education">Education:</label>
+                    <select class="form-control" id="education" name="education" required>
+                        <option value="0">High School</option>
+                        <option value="1">Some College</option>
+                        <option value="2">Bachelor's Degree</option>
+                        <option value="3">Postgraduate</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Set 2 -->
+            <div class="question-set" id="set2">
+                <h5>Set 2</h5>
+                <!-- Country Input -->
+                <div class="form-group">
+                    <label for="country">Country:</label>
+                    <select class="form-control" id="country" name="country" required>
+                        <option value="0">USA</option>
+                        <option value="1">UK</option>
+                        <option value="2">Canada</option>
+                        <option value="3">Australia</option>
+                        <option value="4">Other</option>
+                    </select>
+                </div>
+
+                <!-- Depressed Mood -->
+                <div class="form-group">
+                    <label for="depressed_mood">Depressed Mood:</label>
+                    <select class="form-control" id="depressed_mood" name="depressed_mood" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Sleep Disturbance -->
+                <div class="form-group">
+                    <label for="sleep_disturbance">Sleep Disturbance:</label>
+                    <select class="form-control" id="sleep_disturbance" name="sleep_disturbance" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Set 3 -->
+            <div class="question-set" id="set3">
+                <h5>Set 3</h5>
+                <!-- Appetite Disturbance -->
+                <div class="form-group">
+                    <label for="appetite_disturbance">Appetite Disturbance:</label>
+                    <select class="form-control" id="appetite_disturbance" name="appetite_disturbance" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Reduction in Social Engagement & Energy -->
+                <div class="form-group">
+                    <label for="reduction_in_social_engagement_energy">Reduction in Social Engagement & Energy:</label>
+                    <select class="form-control" id="reduction_in_social_engagement_energy" name="reduction_in_social_engagement_energy" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+            
+
+            <!-- Not Feeling Motivated, Concentrated -->
+                <div class="form-group">
+                    <label for="not_feeling_motivated_concentrated">Not Feeling Motivated, Concentrated:</label>
+                    <select class="form-control" id="not_feeling_motivated_concentrated" name="not_feeling_motivated_concentrated" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Anxiety -->
+                <div class="form-group">
+                    <label for="anxiety">Anxiety:</label>
+                    <select class="form-control" id="anxiety" name="anxiety" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Feel Worthlessness, Hopeless, Helpless -->
+                <div class="form-group">
+                    <label for="feel_worthlessness_hopeless_helpless">Feel Worthlessness, Hopeless, Helpless:</label>
+                    <select class="form-control" id="feel_worthlessness_hopeless_helpless" name="feel_worthlessness_hopeless_helpless" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+            </div>
+            <!-- ... (previous code) ... -->
+
+            <!-- Set 4 -->
+            <div class="question-set" id="set4">
+                <h5>Set 4</h5>
+                <!-- Suicidal Thoughts -->
+                <div class="form-group">
+                    <label for="suicidal_thoughts">Suicidal Thoughts:</label>
+                    <select class="form-control" id="suicidal_thoughts" name="suicidal_thoughts" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Talkative or Speak Faster Than Usual -->
+                <div class="form-group">
+                    <label for="talkative_or_speak_faster_than_usual">Talkative or Speak Faster Than Usual:</label>
+                    <select class="form-control" id="talkative_or_speak_faster_than_usual" name="talkative_or_speak_faster_than_usual" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Felt Both High (Elated) and Low (Depressed) at the Same Time -->
+                <div class="form-group">
+                    <label for="felt_both_high_elated_and_low_depressed_at_the_same_time">Felt Both High (Elated) and Low (Depressed) at the Same Time:</label>
+                    <select class="form-control" id="felt_both_high_elated_and_low_depressed_at_the_same_time" name="felt_both_high_elated_and_low_depressed_at_the_same_time" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Set 5 -->
+            <div class="question-set" id="set5">
+                <h5>Set 5</h5>
+                <!-- More Interested in Sex Than Usual -->
+                <div class="form-group">
+                    <label for="more_interested_in_sex_than_usual">More Interested in Sex Than Usual:</label>
+                    <select class="form-control" id="more_interested_in_sex_than_usual" name="more_interested_in_sex_than_usual" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Interest in Being With People vs. Wanting to Be Left Alone -->
+                <div class="form-group">
+                    <label for="interest_in_being_with_people_vs_wanting_to_be_left_alone">Interest in Being With People vs. Wanting to Be Left Alone:</label>
+                    <select class="form-control" id="interest_in_being_with_people_vs_wanting_to_be_left_alone" name="interest_in_being_with_people_vs_wanting_to_be_left_alone" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Self Confidence Ranges from Self-Doubt to Overconfidence -->
+                <div class="form-group">
+                    <label for="self_confidence_ranges_from_self_doubt_to_overconfidence">Self Confidence Ranges from Self-Doubt to Overconfidence:</label>
+                    <select class="form-control" id="self_confidence_ranges_from_self_doubt_to_overconfidence" name="self_confidence_ranges_from_self_doubt_to_overconfidence" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Set 6 -->
+            <div class="question-set" id="set6">
+                <h5>Set 6</h5>
+                <!-- Blood Relatives with Manic Depressive Illness or Bipolar Disorder -->
+                <div class="form-group">
+                    <label for="blood_relatives_with_manic_depressive_illness_or_bipolar_disorder">Blood Relatives with Manic Depressive Illness or Bipolar Disorder:</label>
+                    <select class="form-control" id="blood_relatives_with_manic_depressive_illness_or_bipolar_disorder" name="blood_relatives_with_manic_depressive_illness_or_bipolar_disorder" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Period of Time When Thoughts Raced Through Your Head -->
+                <div class="form-group">
+                    <label for="period_of_time_when_thoughts_raced_through_your_head">Period of Time When Thoughts Raced Through Your Head:</label>
+                    <select class="form-control" id="period_of_time_when_thoughts_raced_through_your_head" name="period_of_time_when_thoughts_raced_through_your_head" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Over Involved in New Plans and Projects -->
+                <div class="form-group">
+                    <label for="over_involved_in_new_plans_and_projects">Over Involved in New Plans and Projects:</label>
+                    <select class="form-control" id="over_involved_in_new_plans_and_projects" name="over_involved_in_new_plans_and_projects" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Totally Confident That Everything You Do Will Succeed -->
+                <div class="form-group">
+                    <label for="totally_confident_that_everything_you_do_will_succeed">Totally Confident That Everything You Do Will Succeed:</label>
+                    <select class="form-control" id="totally_confident_that_everything_you_do_will_succeed" name="totally_confident_that_everything_you_do_will_succeed" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Talk Over People -->
+                <div class="form-group">
+                    <label for="talk_over_people">Talk Over People:</label>
+                    <select class="form-control" id="talk_over_people" name="talk_over_people" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Sleep Less and Not Feel Tired -->
+                <div class="form-group">
+                    <label for="sleep_less_and_not_feel_tired">Sleep Less and Not Feel Tired:</label>
+                    <select class="form-control" id="sleep_less_and_not_feel_tired" name="sleep_less_and_not_feel_tired" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- See Things in a New and Exciting Light -->
+                <div class="form-group">
+                    <label for="see_things_in_a_new_and_exciting_light">See Things in a New and Exciting Light:</label>
+                    <select class="form-control" id="see_things_in_a_new_and_exciting_light" name="see_things_in_a_new_and_exciting_light" required>
+                        <option value="0">Not at all</option>
+                        <option value="1">Just a little</option>
+                        <option value="2">Somewhat</option>
+                        <option value="3">Moderately</option>
+                        <option value="4">Quite a lot</option>
+                        <option value="5">Very much</option>
+                    </select>
+                </div>
+
+                <!-- Target Variable -->
+                <!-- <div class="form-group">
+                    <label for="target">Target Variable:</label>
+                    <select class="form-control" id="target" name="target" required>
+                        <option value="0">Less Detected</option>
+                        <option value="1">Mild Detected</option>
+                        <option value="2">Highly Detected</option>
+                    </select>
+                </div> -->
+            </div>
+            
+            <!-- Button to Submit Form -->
+            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+        </form> 
+
+
+
+<!-- ... (remaining code) ... -->
+
+
+            <button type="button" class="btn btn-primary" id="nextButton">Next</button>
+            <!-- Button to Submit Form -->
+            <button type="button" class="btn btn-success" id="submitButton" style="display: none;">Submit</button>
+
+        </form>
+
+        <div class="mt-3">
+            <strong>Predicted Outcome:</strong> <span id="prediction">{{ prediction }}</span>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var currentSet = 1;
+            var totalSets = $(".question-set").length;
+
+            $("#nextButton").click(function () {
+                $("#set" + currentSet).removeClass("active");
+                currentSet++;
+
+                if (currentSet <= totalSets) {
+                    $("#set" + currentSet).addClass("active");
+
+                    if (currentSet === totalSets) {
+                        $("#nextButton").hide();
+                        $("#submitButton").show();  // Show the Submit button when Set 6 is active
+                    }
+                }
+            });
+
+            $("#submitButton").click(function() {
+                $("#predictionForm").submit();  // Submit the form when the final submit button is clicked
+            });
+        });
+
+    </script>
+    
+</body>
+</html>

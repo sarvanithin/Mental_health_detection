@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f5f9; /* Light blue-gray */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #4d4d4d; /* Dark gray */
+            text-align: center;
+        }
+
+        p {
+            color: #333; /* Dark gray */
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        /* Styling for nutrition information */
+        .nutrition-info {
+            background-color: #fff; /* White */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Styling for error message */
+        .error-message {
+            color: #ff4444; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <h1>Results</h1>
+
+    {% if nutrition %}
+        <div class="nutrition-info">
+            <p>Title: {{ title }}</p>
+            <p>Calories: {{ nutrition['calories'] }}</p>
+            <p>Protein: {{ nutrition['totalNutrients']['PROCNT']['quantity'] }} {{ nutrition['totalNutrients']['PROCNT']['unit'] }}</p>
+            <p>Fat: {{ nutrition['totalNutrients']['FAT']['quantity'] }} {{ nutrition['totalNutrients']['FAT']['unit'] }}</p>
+            <p>Carbohydrates: {{ nutrition['totalNutrients']['CHOCDF']['quantity'] }} {{ nutrition['totalNutrients']['CHOCDF']['unit'] }}</p>
+            <p>Fiber: {{ nutrition['totalNutrients']['FIBTG']['quantity'] }} {{ nutrition['totalNutrients']['FIBTG']['unit'] }}</p>
+            <p>Sugar: {{ nutrition['totalNutrients']['SUGAR']['quantity'] }} {{ nutrition['totalNutrients']['SUGAR']['unit'] }}</p>
+            <!-- Display other nutrition information as desired -->
+        </div>
+    {% else %}
+        {% if error %}
+            <p class="error-message">Error: {{ error }}</p>
+        {% else %}
+            <p>No nutrition information available</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

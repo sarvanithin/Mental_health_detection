@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Questionnaire</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<!-- <body class="bg-gray-100 p-8">  -->
+     <body class="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 dark:from-purple-900 dark:via-pink-700 dark:to-red-700 relative">
+ 
+
+ <header class="w-full py-4 px-6 flex justify-between items-center bg-purple-500 dark:bg-purple-700 shadow-md">
+        <div class="text-white text-2xl font-bold">Mental Health Questionnaire</div>
+    </header>
+    <div class="max-w-2xl mx-auto" class="max-w-2xl mx-auto mt-8 text-white">
+        <!-- <h1 class="text-3xl font-bold mb-6">Mental Health Questionnaire</h1> -->
+        <!-- <form action="#" method="post" class="bg-white p-6 rounded shadow-md"> -->
+            <form action="#" method="post">
+
+        <!-- Demographic Section -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Demographic Information</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="mb-4">
+                    <label for="age" class="block text-sm font-medium text-gray-600">Age</label>
+                    <input type="text" id="age" name="age" class="mt-1 p-2 w-full border rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label for="gender" class="block text-sm font-medium text-gray-600">Gender</label>
+                    <select id="gender" name="gender" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
+                    </select>
+                </div>
+                <br>
+                <div class="mb-4">
+                    <label for="familyHistory" class="block text-sm font-medium text-gray-600">Family History of Anxiety or Depression</label>
+                    <select id="familyHistory" name="familyHistory" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="occupation" class="block text-sm font-medium text-gray-600" style="margin-bottom:20px;">Occupation</label>
+                    <select id="occupation" name="occupation" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="1">Student</option>
+                        <option value="2">Faculty member</option>
+                        <option value="3">Employee</option>
+                        <option value="4">Self-employment</option>
+                        <option value="5">Unemployed</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Symptoms Section -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Symptoms</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="mb-4">
+                    <label for="atf" class="block text-sm font-medium text-gray-600">The fear of being at the center of attention (ATF)</label>
+                    <input type="number" id="atf" name="atf" class="mt-1 p-2 w-full border rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label for="tkf" class="block text-sm font-medium text-gray-600">The fear of speaking in public (TKF)</label>
+                    <input type="number" id="tkf" name="tkf" class="mt-1 p-2 w-full border rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label for="def" class="block text-sm font-medium text-gray-600">The fear of eating and drinking in public places (DEF)</label>
+                    <input type="number" id="def" name="def" class="mt-1 p-2 w-full border rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label for="smf" class="block text-sm font-medium text-gray-600">The fear of meeting or contact with strangers (SMF)</label>
+                    <input type="number" id="smf" name="smf" class="mt-1 p-2 w-full border rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label for="daf" class="block text-sm font-medium text-gray-600">The fear of disagreement with strangers (DAF)</label>
+                    <input type="number" id="daf" name="daf" class="mt-1 p-2 w-full border rounded-md">
+                </div>
+                <div class="mb-4">
+                    <label for="hr" class="block text-sm font-medium text-gray-600" style="margin-bottom:20px;">Has heart palpitations (HR)</label>
+                    <select id="hr" name="hr" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="sw" class="block text-sm font-medium text-gray-600">Has sweating (SW)</label>
+                    <select id="sw" name="sw" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="tr" class="block text-sm font-medium text-gray-600">Has a tremor (TR)</label>
+                    <select id="tr" name="tr" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="dr" class="block text-sm font-medium text-gray-600">Has dry mouth (DR)</label>
+                    <select id="dr" name="dr" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="br" class="block text-sm font-medium text-gray-600">Has hard breathing (BR)</label>
+                    <select id="br" name="br" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="ck" class="block text-sm font-medium text-gray-600">Has a feeling of suffocation (CK)</label>
+                    <select id="ck" name="ck" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="cp" class="block text-sm font-medium text-gray-600">Has chest pain (CP)</label>
+                    <select id="cp" name="cp" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="ns" class="block text-sm font-medium text-gray-600">Has gastrointestinal discomfort and nausea (NS)</label>
+                    <select id="ns" name="ns" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="dz" class="block text-sm font-medium text-gray-600">Has a feeling of dizzy, weak and sick (DZ)</label>
+                    <select id="dz" name="dz" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="ur" class="block text-sm font-medium text-gray-600">Has a feeling of being unreal (UR)</label>
+                    <select id="ur" name="ur" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="ub" class="block text-sm font-medium text-gray-600">Has a fear of losing balance (UB)</label>
+                    <select id="ub" name="ub" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="md" class="block text-sm font-medium text-gray-600">Has a fear of being crazy (MD)</label>
+                    <select id="md" name="md" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="tg" class="block text-sm font-medium text-gray-600">Has numbness or moaning (TG)</label>
+                    <select id="tg" name="tg" class="mt-1 p-2 w-full border rounded-md">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+<!-- Submit Button -->
+        <div class="mb-8">
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Submit</button>
+        </div>
+
+        <!-- </form> -->
+    </form>
+    </div>
+
+</body>
+</html>

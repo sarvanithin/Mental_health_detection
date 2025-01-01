@@ -1,0 +1,265 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial Expression Detection</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fdd2e3; /* Light baby pink */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        #video {
+            width: 80%;
+            max-width: 640px;
+            height: auto;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        #captureBtn {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        #submitBtn {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Facial Expression Detection</h1>
+    <video id="video" width="640" height="480" autoplay></video>
+    <button id="captureBtn">Capture</button>
+    <button id="submitBtn">Submit</button>
+
+    <script>
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                const video = document.getElementById('video');
+                video.srcObject = stream;
+
+                const captureBtn = document.getElementById('captureBtn');
+                const submitBtn = document.getElementById('submitBtn');
+
+                let imgData = '';
+
+                captureBtn.addEventListener('click', () => {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = video.width;
+                    canvas.height = video.height;
+                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                    canvas.toBlob(blob => {
+                        const reader = new FileReader();
+                        reader.readAsDataURL(blob);
+
+                        reader.onloadend = () => {
+                            imgData = reader.result;
+
+                            // Ensure imgData is not empty before alerting
+                            if (imgData) {
+                                alert('Image captured!');
+                            } else {
+                                alert('Failed to capture image. Please try again.');
+                            }
+                        };
+                    }, 'image/jpeg');
+                });
+
+                submitBtn.addEventListener('click', () => {
+                    if (imgData) {
+                        fetch('/capture', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            body: `img_data=${encodeURIComponent(imgData)}`,
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.emotion === 'Error') {
+                                alert('Failed to capture emotion. Please try again.');
+                            } else {
+                                alert('Successfully saved!');
+                                // Optionally, you can do something with the detected emotion data if needed
+                                // console.log(`Detected Emotion: ${data.emotion}`);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error saving emotion:', error);
+                            alert('Failed to save emotion. Please try again.');
+                        });
+                    } else {
+                        alert('Please capture an image first.');
+                    }
+                });
+            })
+            .catch(error => console.error('Error accessing the camera:', error));
+    </script>
+</body>
+</html>  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial Expression Detection</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Additional styles to control video container */
+        .video-container {
+            max-width: 640px;
+            margin: auto;
+            overflow: hidden;
+            height: 480px; /* Set a fixed height */
+        }
+
+        #video {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        /* Styles for side-by-side buttons */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        #captureBtn,
+        #submitBtn {
+            flex: 1;
+            margin: 0 0.5rem;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 dark:from-purple-900 dark:via-pink-700 dark:to-red-700 overflow-hidden relative font-sans">
+
+    <header class="w-full py-4 px-6 flex justify-between items-center bg-purple-500 dark:bg-purple-700 shadow-md">
+        <div class="text-white text-2xl font-bold">Facial Expression Detection</div>
+        <nav class="flex space-x-4 items-center">
+            <a href="#" class="text-white hover:text-purple-200">Home</a>
+            <a href="#" class="text-white hover:text-purple-200">About</a>
+            <a href="#" class="text-white hover:text-purple-200">Contact</a>
+        </nav>
+    </header>
+
+    <h1 class="text-3xl font-bold mb-4 text-indigo-700 text-center mt-8">Facial Expression Detection</h1>
+    <div class="video-container">
+        <video id="video" class="mx-auto" width="100%" height="auto" autoplay></video>
+    </div>
+    <div class="button-container">
+        <button id="captureBtn" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-700 focus:outline-none focus:bg-green-700">Capture</button>
+        <button id="submitBtn" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:bg-blue-700">Submit</button>
+    </div>
+
+    <script>
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                const video = document.getElementById('video');
+                video.srcObject = stream;
+
+                const captureBtn = document.getElementById('captureBtn');
+                const submitBtn = document.getElementById('submitBtn');
+
+                let imgData = '';
+
+                captureBtn.addEventListener('click', () => {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                    canvas.toBlob(blob => {
+                        const reader = new FileReader();
+                        reader.readAsDataURL(blob);
+
+                        reader.onloadend = () => {
+                            imgData = reader.result;
+
+                            // Ensure imgData is not empty before alerting
+                            if (imgData) {
+                                alert('Image captured!');
+                            } else {
+                                alert('Failed to capture image. Please try again.');
+                            }
+                        };
+                    }, 'image/jpeg');
+                });
+
+                submitBtn.addEventListener('click', () => {
+                    if (imgData) {
+                        fetch('/capture', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            body: `img_data=${encodeURIComponent(imgData)}`,
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.emotion === 'Error') {
+                                    alert('Failed to capture emotion. Please try again.');
+                                } else {
+                                    alert('Successfully saved!');
+                                    // Optionally, you can do something with the detected emotion data if needed
+                                    // console.log(`Detected Emotion: ${data.emotion}`);
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error saving emotion:', error);
+                                alert('Failed to save emotion. Please try again.');
+                            });
+                    } else {
+                        alert('Please capture an image first.');
+                    }
+                });
+            })
+            .catch(error => console.error('Error accessing the camera:', error));
+    </script>
+
+</body>
+
+</html>
+
+
+

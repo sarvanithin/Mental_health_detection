@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Prediction</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 dark:from-purple-900 dark:via-pink-700 dark:to-red-700 overflow-auto relative font-sans bg-purple-400">
+
+<header class="w-full py-4 px-6 flex justify-between items-center bg-purple-500 dark:bg-purple-700 shadow-md">
+    <div class="text-white text-2xl font-bold">Mental Health Prediction</div>
+    <nav class="flex space-x-4 items-center">
+        <!-- Include navigation links if needed -->
+    </nav>
+</header>
+
+<style>
+    /* Custom CSS for radio button size */
+    .radio-large {
+        width: 2em;
+        height: 2em;
+    }
+
+    .radio-medium {
+        width: 1.5em;
+        height: 1.5em;
+    }
+
+    .radio-small {
+        width: 1em;
+        height: 1em;
+    }
+</style>
+
+<div class="container mx-auto mt-5 p-4 bg-white rounded-md shadow-md bg-purple-400">
+    <h2 class="text-2xl font-semibold mb-4">Employee Mental Health Prediction</h2>
+    <form id="predictionForm" method="post" action="/predict_mental_health">
+
+        <!-- Self Employed -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Self Employed:</label>
+            <div class="mt-1">
+                <input type="radio" id="self_employed_no" name="self_employed" value="0" class="mr-2 radio-large" checked>
+                <label for="self_employed_no">No</label>
+                <input type="radio" id="self_employed_yes" name="self_employed" value="1" class="ml-4 mr-2 radio-medium">
+                <label for="self_employed_yes">Yes</label>
+            </div>
+        </div>
+
+        <!-- Family History -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Family History:</label>
+            <div class="mt-1">
+                <input type="radio" id="family_history_no" name="family_history" value="0" class="mr-2 radio-large" checked>
+                <label for="family_history_no">No</label>
+                <input type="radio" id="family_history_yes" name="family_history" value="1" class="ml-4 mr-2 radio-medium">
+                <label for="family_history_yes">Yes</label>
+            </div>
+        </div>
+
+        <!-- Work Interfere -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Work Interfere:</label>
+            <div class="mt-1">
+                <input type="radio" id="work_interfere_no" name="work_interfere" value="0" class="mr-2 radio-large" checked>
+                <label for="work_interfere_no">No</label>
+                <input type="radio" id="work_interfere_maybe" name="work_interfere" value="1" class="ml-4 mr-2 radio-medium">
+                <label for="work_interfere_maybe">Maybe</label>
+                <input type="radio" id="work_interfere_majority" name="work_interfere" value="2" class="ml-4 mr-2 radio-medium">
+                <label for="work_interfere_majority">Majority</label>
+                <input type="radio" id="work_interfere_yes" name="work_interfere" value="3" class="ml-4 mr-2 radio-large">
+                <label for="work_interfere_yes">Yes</label>
+            </div>
+        </div>
+
+        <!-- Remote Work -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Remote Work:</label>
+            <div class="mt-1">
+                <input type="radio" id="remote_work_no" name="remote_work" value="0" class="mr-2 radio-medium" checked>
+                <label for="remote_work_no">No</label>
+                <input type="radio" id="remote_work_yes" name="remote_work" value="1" class="ml-4 mr-2 radio-small">
+                <label for="remote_work_yes">Yes</label>
+            </div>
+        </div>
+
+        <!-- Care Options -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Care Options:</label>
+            <div class="mt-1">
+                <input type="radio" id="care_options_no" name="care_options" value="0" class="mr-2 radio-medium" checked>
+                <label for="care_options_no">No</label>
+                <input type="radio" id="care_options_maybe" name="care_options" value="1" class="ml-4 mr-2 radio-small">
+                <label for="care_options_maybe">Maybe</label>
+                <input type="radio" id="care_options_yes" name="care_options" value="2" class="ml-4 mr-2 radio-medium">
+                <label for="care_options_yes">Yes</label>
+            </div>
+        </div>
+
+        <!-- Wellness Program -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Wellness Program:</label>
+            <div class="mt-1">
+                <input type="radio" id="wellness_program_no" name="wellness_program" value="0" class="mr-2" checked>
+                <label for="wellness_program_no">No</label>
+                <input type="radio" id="wellness_program_maybe" name="wellness_program" value="1" class="ml-4 mr-2">
+                <label for="wellness_program_maybe">Maybe</label>
+                <input type="radio" id="wellness_program_yes" name="wellness_program" value="2" class="ml-4 mr-2">
+                <label for="wellness_program_yes">Yes</label>
+            </div>
+        </div>
+
+        <!-- Anonymity -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Anonymity:</label>
+            <div class="mt-1">
+                <input type="radio" id="anonymity_no" name="anonymity" value="0" class="mr-2" checked>
+                <label for="anonymity_no">No</label>
+                <input type="radio" id="anonymity_maybe" name="anonymity" value="1" class="ml-4 mr-2">
+                <label for="anonymity_maybe">Maybe</label>
+                <input type="radio" id="anonymity_yes" name="anonymity" value="2" class="ml-4 mr-2">
+                <label for="anonymity_yes">Yes</label>
+            </div>
+        </div>
+
+        <!-- Leave -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Leave:</label>
+            <div class="mt-1">
+                <input type="radio" id="leave_no" name="leave" value="0" class="mr-2" checked>
+                <label for="leave_no">No</label>
+                <input type="radio" id="leave_certain_times" name="leave" value="1" class="ml-4 mr-2">
+                <label for="leave_certain_times">Certain Times</label>
+                <input type="radio" id="leave_emergency" name="leave" value="2" class="ml-4 mr-2">
+                <label for="leave_emergency">Emergency</label>
+                <input type="radio" id="leave_majority" name="leave" value="3" class="ml-4 mr-2">
+                <label for="leave_majority">Majority</label>
+                <input type="radio" id="leave_yes" name="leave" value="4" class="ml-4 mr-2">
+                <label for="leave_yes">Yes</label>
+            </div>
+        </div>
+
+        <!-- Mental Health Consequence -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Mental Health Consequence:</label>
+            <div class="mt-1">
+                <input type="radio" id="mental_health_consequence_no" name="mental_health_consequence" value="0" class="mr-2" checked>
+                <label for="mental_health_consequence_no">No</label>
+                <input type="radio" id="mental_health_consequence_maybe" name="mental_health_consequence" value="1" class="ml-4 mr-2">
+                <label for="mental_health_consequence_maybe">Maybe</label>
+                <input type="radio" id="mental_health_consequence_yes" name="mental_health_consequence" value="2" class="ml-4 mr-2">
+                <label for="mental_health_consequence_yes">Yes</label>
+            </div>
+        </div>
+
+        <!-- Physical Health Consequence -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Physical Health Consequence:</label>
+            <div class="mt-1">
+                <input type="radio" id="phys_health_consequence_no" name="phys_health_consequence" value="0" class="mr-2" checked>
+                <label for="phys_health_consequence_no">No</label>
+                <input type="radio" id="phys_health_consequence_maybe" name="phys_health_consequence" value="1" class="ml-4 mr-2">
+                <label for="phys_health_consequence_maybe">Maybe</label>
+                <input type="radio" id="phys_health_consequence_yes" name="phys_health_consequence" value="2" class="ml-4 mr-2">
+                <label for="phys_health_consequence_yes">Yes</label>
+            </div>
+        </div>
+
+        <!-- Coworkers -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Coworkers:</label>
+            <div class="mt-1">
+                <input type="radio" id="coworkers_no" name="coworkers" value="0" class="mr-2" checked>
+                <label for="coworkers_no">No</label>
+                <input type="radio" id="coworkers_maybe" name="coworkers" value="1" class="ml-4 mr-2">
+                <label for="coworkers_maybe">Maybe</label>
+                <input type="radio" id="coworkers_yes" name="coworkers" value="2" class="ml-4 mr-2">
+                <label for="coworkers_yes">Yes</label>
+            </div>
+        </div>
+
+        <!-- Supervisor -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Supervisor:</label>
+            <div class="mt-1">
+                <input type="radio" id="supervisor_no" name="supervisor" value="0" class="mr-2" checked>
+                <label for="supervisor_no">No</label>
+                <input type="radio" id="supervisor_maybe" name="supervisor" value="1" class="ml-4 mr-2">
+                <label for="supervisor_maybe">Maybe</label>
+                <input type="radio" id="supervisor_yes" name="supervisor" value="2" class="ml-4 mr-2">
+                <label for="supervisor_yes">Yes</label>
+            </div>
+        </div>
+
+        <!-- Mental Health Interview -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Mental Health Interview:</label>
+            <div class="mt-1">
+                <input type="radio" id="mental_health_interview_no" name="mental_health_interview" value="0" class="mr-2" checked>
+                <label for="mental_health_interview_no">No</label>
+                <input type="radio" id="mental_health_interview_maybe" name="mental_health_interview" value="1" class="ml-4 mr-2">
+                <label for="mental_health_interview_maybe">Maybe</label>
+                <input type="radio" id="mental_health_interview_yes" name="mental_health_interview" value="2" class="ml-4 mr-2">
+                <label for="mental_health_interview_yes">Yes</label>
+            </div>
+        </div>
+
+        <!-- Physical Health Interview -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Physical Health Interview:</label>
+            <div class="mt-1">
+                <input type="radio" id="phys_health_interview_no" name="phys_health_interview" value="0" class="mr-2" checked>
+                <label for="phys_health_interview_no">No</label>
+                <input type="radio" id="phys_health_interview_maybe" name="phys_health_interview" value="1" class="ml-4 mr-2">
+                <label for="phys_health_interview_maybe">Maybe</label>
+                <input type="radio" id="phys_health_interview_yes" name="phys_health_interview" value="2" class="ml-4 mr-2">
+                <label for="phys_health_interview_yes">Yes</label>
+            </div>
+        </div>
+
+        <!-- Mental vs Physical -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Mental vs Physical:</label>
+            <div class="mt-1">
+                <input type="radio" id="mental_vs_physical_no" name="mental_vs_physical" value="0" class="mr-2" checked>
+                <label for="mental_vs_physical_no">No</label>
+                <input type="radio" id="mental_vs_physical_maybe" name="mental_vs_physical" value="1" class="ml-4 mr-2">
+                <label for="mental_vs_physical_maybe">Maybe</label>
+                <input type="radio" id="mental_vs_physical_yes" name="mental_vs_physical" value="2" class="ml-4 mr-2">
+                <label for="mental_vs_physical_yes">Yes</label>
+            </div>
+        </div>
+
+        <!-- Obs Consequence -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Obs Consequence:</label>
+            <div class="mt-1">
+                <input type="radio" id="obs_consequence_no" name="obs_consequence" value="0" class="mr-2" checked>
+                <label for="obs_consequence_no">No</label>
+                <input type="radio" id="obs_consequence_yes" name="obs_consequence" value="1" class="ml-4 mr-2">
+                <label for="obs_consequence_yes">Yes</label>
+            </div>
+        </div>
+
+        <!-- Target: Treatment -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">Treatment:</label>
+            <div class="mt-1">
+                <input type="radio" id="treatment_no" name="treatment" value="0" class="mr-2" checked>
+                <label for="treatment_no">No</label>
+                <input type="radio" id="treatment_yes" name="treatment" value="1" class="ml-4 mr-2">
+                <label for="treatment_yes">Yes</label>
+            </div>
+        </div>
+
+        <button type="submit" class="bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-700">Predict</button>
+    </form>
+
+    <div class="mt-3">
+        <strong>Predicted Outcome:</strong> <span id="prediction">{{ prediction }}</span>
+    </div>
+</div>
+
+</body>
+</html>
+

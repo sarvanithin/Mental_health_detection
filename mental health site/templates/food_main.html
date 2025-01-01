@@ -1,0 +1,120 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Nutrition Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f5f9; /* Light blue-gray */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #4d4d4d; /* Dark gray */
+            text-align: center;
+        }
+
+        form {
+            width: 80%;
+            max-width: 500px;
+            background-color: #fff; /* White */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            color: #333; /* Dark gray */
+            font-size: 16px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50; /* Green */
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recipe Nutrition Calculator</h1>
+    <form action="/calculate" method="post">
+        <label for="title">Recipe Title:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="ingredients">Ingredient List:</label><br>
+        <textarea id="ingredients" name="ingredients" rows="5" required></textarea><br><br>
+
+        <label for="servings">Number of Servings:</label><br>
+        <input type="number" id="servings" name="servings" min="1" required><br><br>
+
+        <input type="submit" value="Calculate Nutrition">
+    </form>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Nutrition Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 dark:from-purple-900 dark:via-pink-700 dark:to-red-700 overflow-hidden relative font-sans">
+
+    <header class="w-full py-4 px-6 flex justify-between items-center bg-purple-500 dark:bg-purple-700 shadow-md">
+        <div class="text-white text-2xl font-bold">Recipe Nutrition Calculator</div>
+        <nav class="flex space-x-4 items-center">
+            <a href="#" class="text-white hover:text-purple-200">Home</a>
+            <a href="#" class="text-white hover:text-purple-200">About</a>
+            <a href="#" class="text-white hover:text-purple-200">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container mx-auto my-8 p-8 bg-white shadow-lg rounded-md text-gray-800">
+        <h1 class="text-3xl font-bold mb-4 text-indigo-700">Recipe Nutrition Calculator</h1>
+        <form action="/calculate" method="post">
+            <label for="title" class="block text-sm font-medium text-gray-600">Recipe Title:</label>
+            <input type="text" id="title" name="title" class="mt-1 p-2 block w-full border rounded-md focus:outline-none focus:border-indigo-500" required>
+
+            <label for="ingredients" class="block text-sm font-medium text-gray-600 mt-4">Ingredient List:</label>
+            <textarea id="ingredients" name="ingredients" rows="5" class="mt-1 p-2 block w-full border rounded-md focus:outline-none focus:border-indigo-500" required></textarea>
+
+            <label for="servings" class="block text-sm font-medium text-gray-600 mt-4">Number of Servings:</label>
+            <input type="number" id="servings" name="servings" min="1" class="mt-1 p-2 block w-full border rounded-md focus:outline-none focus:border-indigo-500" required>
+
+            <button type="submit" class="bg-indigo-500 text-white px-4 py-2 rounded-md mt-6 hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
+                Calculate Nutrition
+            </button>
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anxiety Assessment</title>
+    <!-- Link to Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <style>
+        /* Custom styles */
+        body {
+            background-color: #f3f4f6; /* Match the background color of your main page */
+            font-family: 'Arial', sans-serif; /* Match the font family of your main page */
+        }
+
+        .container {
+            max-width: 600px; /* Match the max-width of your main page content */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        /* Styling for the submit button */
+        #submitBtn {
+            background-color: #2563eb; /* Match the primary color of your main page */
+        }
+
+        #submitBtn:hover {
+            background-color: #1d4ed8; /* Darker shade of primary color on hover */
+        }
+
+        /* Styling for the result placeholder */
+        #result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<header class="w-full py-4 px-6 flex justify-between items-center bg-purple-500 dark:bg-purple-700 shadow-md">
+    <div class="text-white text-2xl font-bold">Mental Health Prediction</div>
+    <nav class="flex space-x-4 items-center">
+        <!-- Include navigation links if needed -->
+    </nav>
+</header>
+<body class="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 dark:from-purple-900 dark:via-pink-700 dark:to-red-700 relative">
+    <div class="container rounded-md shadow-md">
+        <h1 class="text-2xl font-bold mb-4 p-4 bg-gray-100">Anxiety Assessment</h1>
+
+        <!-- Questions -->
+        <form method="post" action="{{ url_for('anxiety_stress') }}">
+            <div class="question">
+                <div class="mb-6">
+                    <p class="font-semibold">Q1 I found myself getting upset by quite trivial things.</p>
+                    <!-- Question 1 Select Dropdown goes here -->
+                    <select class="mt-2 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" name="q1">
+                        <option value="1">Did not apply to me at all</option>
+                        <option value="2">Applied to me to some degree, or some of the time</option>
+                        <option value="3">Applied to me to a considerable degree, or a good part of the time</option>
+                        <option value="4">Applied to me very much, or most of the time</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <p class="font-semibold">Q2 I experienced breathing difficulty (eg, excessively rapid breathing, breathlessness in the absence of physical exertion).</p>
+                    <!-- Question 2 Select Dropdown goes here -->
+                    <select class="mt-2 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" name="q2">
+                        <option value="1">Did not apply to me at all</option>
+                        <option value="2">Applied to me to some degree, or some of the time</option>
+                        <option value="3">Applied to me to a considerable degree, or a good part of the time</option>
+                        <option value="4">Applied to me very much, or most of the time</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <p class="font-semibold">Q3 I had a feeling of shakiness (eg, legs going to give way).</p>
+                    <!-- Question 3 Select Dropdown goes here -->
+                    <select class="mt-2 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" name="q3">
+                        <option value="1">Did not apply to me at all</option>
+                        <option value="2">Applied to me to some degree, or some of the time</option>
+                        <option value="3">Applied to me to a considerable degree, or a good part of the time</option>
+                        <option value="4">Applied to me very much, or most of the time</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <p class="font-semibold">Q4 I experienced breathing difficulty (eg, excessively rapid breathing, breathlessness in the absence of physical exertion).</p>
+                    <!-- Question 4 Select Dropdown goes here -->
+                    <select class="mt-2 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" name="q4">
+                        <option value="1">Did not apply to me at all</option>
+                        <option value="2">Applied to me to some degree, or some of the time</option>
+                        <option value="3">Applied to me to a considerable degree, or a good part of the time</option>
+                        <option value="4">Applied to me very much, or most of the time</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <p class="font-semibold">Q5 I found myself in situations that made me so anxious I was most relieved when they ended.</p>
+                    <!-- Question 5 Select Dropdown goes here -->
+                    <select class="mt-2 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" name="q5">
+                        <option value="1">Did not apply to me at all</option>
+                        <option value="2">Applied to me to some degree, or some of the time</option>
+                        <option value="3">Applied to me to a considerable degree, or a good part of the time</option>
+                        <option value="4">Applied to me very much, or most of the time</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <p class="font-semibold">Q6 I found myself getting impatient when I was delayed in any way (eg, elevators, traffic lights, being kept waiting).</p>
+                    <!-- Question 6 Select Dropdown goes here -->
+                    <select class="mt-2 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" name="q6">
+                        <option value="1">Did not apply to me at all</option>
+                        <option value="2">Applied to me to some degree, or some of the time</option>
+                        <option value="3">Applied to me to a considerable degree, or a good part of the time</option>
+                        <option value="4">Applied to me very much, or most of the time</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <p class="font-semibold">Q7 I felt that life wasn't worthwhile.</p>
+                    <!-- Question 7 Select Dropdown goes here -->
+                    <select class="mt-2 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" name="q7">
+                        <option value="1">Did not apply to me at all</option>
+                        <option value="2">Applied to me to some degree, or some of the time</option>
+                        <option value="3">Applied to me to a considerable degree, or a good part of the time</option>
+                        <option value="4">Applied to me very much, or most of the time</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <p class="font-semibold">Q8 I felt down-hearted and blue.</p>
+                    <!-- Question 8 Select Dropdown goes here -->
+                    <select class="mt-2 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" name="q8">
+                        <option value="1">Did not apply to me at all</option>
+                        <option value="2">Applied to me to some degree, or some of the time</option>
+                        <option value="3">Applied to me to a considerable degree, or a good part of the time</option>
+                        <option value="4">Applied to me very much, or most of the time</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <p class="font-semibold">Q9 I felt I was close to panic.</p>
+                    <!-- Question 9 Select Dropdown goes here -->
+                    <select class="mt-2 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" name="q9">
+                        <option value="1">Did not apply to me at all</option>
+                        <option value="2">Applied to me to some degree, or some of the time</option>
+                        <option value="3">Applied to me to a considerable degree, or a good part of the time</option>
+                        <option value="4">Applied to me very much, or most of the time</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <p class="font-semibold">Q10 I felt terrified.</p>
+                    <!-- Question 10 Select Dropdown goes here -->
+                    <select class="mt-2 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" name="q10">
+                        <option value="1">Did not apply to me at all</option>
+                        <option value="2">Applied to me to some degree, or some of the time</option>
+                        <option value="3">Applied to me to a considerable degree, or a good part of the time</option>
+                        <option value="4">Applied to me very much, or most of the time</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <p class="font-semibold">Q11 I was worried about situations in which I might panic and make a fool of myself.</p>
+                    <!-- Question 11 Select Dropdown goes here -->
+                    <select class="mt-2 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" name="q11">
+                        <option value="1">Did not apply to me at all</option>
+                        <option value="2">Applied to me to some degree, or some of the time</option>
+                        <option value="3">Applied to me to a considerable degree, or a good part of the time</option>
+                        <option value="4">Applied to me very much, or most of the time</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <p class="font-semibold">Q12 I found it difficult to work up the initiative to do things.</p>
+                    <!-- Question 12 Select Dropdown goes here -->
+                    <select class="mt-2 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" name="q12">
+                        <option value="1">Did not apply to me at all</option>
+                        <option value="2">Applied to me to some degree, or some of the time</option>
+                        <option value="3">Applied to me to a considerable degree, or a good part of the time</option>
+                        <option value="4">Applied to me very much, or most of the time</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button id="submitBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Submit</button>
+        </form>
+
+        <!-- Result Placeholder -->
+        <div class="mt-3">
+            <strong>Predicted Outcome:</strong> <span id="prediction">{{ prediction }}</span>
+        </div>
+    </div>
+
+    <!-- JavaScript to calculate the score and determine the level of mental health -->
+<script>
+    // Function to calculate the total score
+    function calculateScore() {
+        // Retrieve all select elements
+        var selects = document.querySelectorAll("select");
+        var score = 0;
+
+        // Loop through each select element and add its value to the score
+        selects.forEach(function(select) {
+            score += parseInt(select.value);
+        });
+
+        return score;
+    }
+
+    // Function to determine the level of mental health based on the score
+    function determineMentalHealthLevel(score) {
+        if (score <= 20) {
+            return "Low";
+        } else if (score >= 40) {
+            return "High";
+        } else {
+            return "Mild";
+        }
+    }
+
+    // Function to handle form submission
+    document.getElementById("submitBtn").addEventListener("click", function(event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+
+        var score = calculateScore();
+        var mentalHealthLevel = determineMentalHealthLevel(score);
+        var resultElement = document.getElementById("prediction");
+        resultElement.textContent = mentalHealthLevel;
+        resultElement.style.display = "block";  // Show the result
+
+        // Optionally, you can submit the form data to the server using AJAX
+        var form = document.querySelector('form');
+        var formData = new FormData(form);
+
+        fetch('{{ url_for("predict_anxiety") }}', {
+            method: 'POST',
+            body: formData
+        });
+    });
+</script>
+
+
+    <!-- JavaScript to calculate the score and determine the level of mental health -->
+    <!-- <script>
+        // JavaScript code goes here
+         // Function to calculate the total score
+    function calculateScore() {
+        // Retrieve all select elements
+        var selects = document.querySelectorAll("select");
+        var score = 0;
+
+        // Loop through each select element and add its value to the score
+        selects.forEach(function(select) {
+            score += parseInt(select.value);
+        });
+
+        return score;
+    }
+
+    // Function to determine the level of mental health based on the score
+    function determineMentalHealthLevel(score) {
+        if (score <= 20) {
+            return "Low";
+        } else if (score >= 40) {
+            return "High";
+        } else {
+            return "Mild";
+        }
+    }
+
+    // Function to handle form submission
+    document.getElementById("submitBtn").addEventListener("click", function(event) {
+    // Prevent the default form submission behavior
+        event.preventDefault();
+
+        var score = calculateScore();
+        var mentalHealthLevel = determineMentalHealthLevel(score);
+        var resultElement = document.getElementById("result");
+        resultElement.textContent = "Your mental health level is: " + mentalHealthLevel;
+        resultElement.style.display = "block";  // Show the result
+    });
+
+    </script> -->
+</body>
+
+</html>

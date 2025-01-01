@@ -1,0 +1,64 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Speech Emotion Recognition</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    
+<body>
+    <h1>Speech Emotion Recognition</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file">Upload Recording:</label>
+        <input type="file" name="file" id="file" accept=".wav" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Speech Emotion Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 dark:from-purple-900 dark:via-pink-700 dark:to-red-700 overflow-hidden relative font-sans">
+
+    <header class="w-full py-4 px-6 flex justify-between items-center bg-purple-500 dark:bg-purple-700 shadow-md">
+        <div class="text-white text-2xl font-bold">Speech Emotion Recognition</div>
+        <nav class="flex space-x-4 items-center">
+            <a href="#" class="text-white hover:text-purple-200">Home</a>
+            <a href="#" class="text-white hover:text-purple-200">About</a>
+            <a href="#" class="text-white hover:text-purple-200">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container mx-auto my-8 p-8 bg-white shadow-lg rounded-md text-gray-800">
+        <h1 class="text-3xl font-bold mb-4 text-indigo-700">Speech Emotion Recognition</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="mb-4">
+                <label for="file" class="block text-sm font-medium text-gray-600">Upload Recording:</label>
+                <input type="file" name="file" id="file" accept=".wav"
+                    class="mt-1 p-2 block w-full border rounded-md focus:outline-none focus:border-indigo-500" required>
+            </div>
+            <button type="submit"
+                class="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
+                Submit
+            </button>
+        </form>
+
+        <div class="mt-8">
+            <h2 class="text-xl font-bold text-gray-700 mb-2">Additional Content Section</h2>
+            <p class="text-gray-600">You can add more content related to Speech Emotion Recognition here.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

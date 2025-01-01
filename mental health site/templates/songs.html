@@ -1,0 +1,755 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental health</title>
+
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="static/css/styles.css">
+
+
+</head>
+
+<body>
+
+    <!-- As a heading -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <center><a class="navbar-brand" href="/">Detecting Mental Health through songs</a></center>
+            </div>
+        </div>
+    </nav>
+
+    <br><br><br>
+
+
+<div class="container">
+        <form id="surveyForm" action="\predict" method="post">
+                <div class="question" id="question1">
+                    <h5 class="card-title">How Many Hours do you listen to music per day?</h5>
+                    <input type="number" min="1" max="100" id="Hours_per_day" name="Hours_per_day" required="required">
+                    <button type="button" class="btn btn-secondary next-btn">Next</button>
+                </div>
+
+            <br>
+            <br>
+            <div class="question" style="display: none;">
+                <h5 class="card-title">What is your favorite genre?</h5>
+                <select name="Fav_genre" id="Fav_genre" required="required">
+                    <option value="Fav_genre_Classical">Classical Songs</option>
+                                <option value="Fav_genre_Country">Songs from specifc country</option>
+                                <option value="Fav_genre_EDM">EDM</option>
+                                <option value="Fav_genre_Folk">Folk songs</option>
+                                <option value="Fav_genre_Hip_hop">Hip Hop songs</option>
+                                <option value="Fav_genre_Jazz">Hip Hop songs</option>
+                                <option value="Fav_genre_K_pop">K pop songs</option>
+                                <option value="Fav_genre_Latin">Latin songs</option>
+                                <option value="Fav_genre_Lofi">LOFI songs</option>
+                                <option value="Fav_genre_Metal">Metal songs</option>
+                                <option value="Fav_genre_Pop">Pop songs</option>
+                                <option value="Fav_genre_RB">R&B songs</option>
+                                <option value="Fav_genre_Rap">Rap songs</option>
+                                <option value="Fav_genre_Rock">Rock songs</option>
+                                <option value="Fav_genre_Video game music">Video game composed songs</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary next-btn">Next</button>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">What is Favourite genre ?</h5>
+                            Destination
+                            <select name="Fav_genre" id="Fav_genre" required="required">
+                                <option value="Fav_genre_Classical">Classical Songs</option>
+                                <option value="Fav_genre_Country">Songs from specifc country</option>
+                                <option value="Fav_genre_EDM">EDM</option>
+                                <option value="Fav_genre_Folk">Folk songs</option>
+                                <option value="Fav_genre_Hip_hop">Hip Hop songs</option>
+                                <option value="Fav_genre_Jazz">Hip Hop songs</option>
+                                <option value="Fav_genre_K_pop">K pop songs</option>
+                                <option value="Fav_genre_Latin">Latin songs</option>
+                                <option value="Fav_genre_Lofi">LOFI songs</option>
+                                <option value="Fav_genre_Metal">Metal songs</option>
+                                <option value="Fav_genre_Pop">Pop songs</option>
+                                <option value="Fav_genre_RB">R&B songs</option>
+                                <option value="Fav_genre_Rap">Rap songs</option>
+                                <option value="Fav_genre_Rock">Rock songs</option>
+                                <option value="Fav_genre_Video game music">Video game composed songs</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="question" style="display: none;">
+                <h5 class="card-title">Do You Listen to foreign countries composed songs?</h5>
+                <select name="Foreign_languages" id="Foreign_languages" required="required">
+                    <option value="Foreign_languages_Yes">Yes</option>
+                    <option value="Foreign_languages_No">No</option>
+                </select>
+                <button type="button" class="btn btn-secondary next-btn">Next</button>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Do You Listen to foreign countries composed songs?</h5>
+                        Destination
+                        <select name="Foreign_languages" id="Foreign_languages" required="required">
+                            <option value="Foreign_languages_Yes">Yes</option>
+                            <option value="Foreign_languages_No">No</option>
+                        </select>
+                    </div>
+                </div>
+            </div> 
+            <div class="question" style="display: none;" >
+                <h5 class="card-title">How often do you listen to classical songs?</h5>
+                            <!-- Destination -->
+                            <select name="Frequency_Classical" id="Frequency_Classical" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary next-btn">Next</button>
+            </div>
+
+
+
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How often do you listen to classical songs?</h5>
+                            
+                            <select name="Frequency_Classical" id="Frequency_Classical" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="question" style="display: none;" >
+
+                <h5 class="card-title">How often do you listen to Other country songs?</h5>
+                            <!-- Destination -->
+                            <select name="Frequency_Country" id="Frequency_Country" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary next-btn">Next</button>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How often do you listen to Other country songs?</h5>
+                            
+                            <select name="Frequency_Country" id="Frequency_Country" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<div class="question" style="display: none;">
+    <h5 class="card-title">How often do you listen to EDM songs?</h5>
+                            
+                            <select name="Frequency_EDM" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary next-btn">Next</button>
+</div>
+
+            
+            <br>
+            <br>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How often do you listen to EDM songs?</h5>
+                            
+                            <select name="Frequency_EDM" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="question" style="display: none;">
+                <h5 class="card-title">How often do you listen to Folk songs?</h5>
+                            
+                            <select name="Frequency_Folk" id="Frequency_Folk" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary next-btn">Next</button>
+
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How often do you listen to Folk songs?</h5>
+                            
+                            <select name="Frequency_Folk" id="Frequency_Folk" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="question" style="display:none;">
+                <h5 class="card-title">How often do you listen to Gospel songs?</h5>
+                
+                <select name="Frequency_Gospel" id="Frequency_Gospel" required="required">
+                    <option value=1>Rarely</option>
+                    <option value=2>Sometimes</option>
+                    <option value=3>Never</option>
+                    <option value=4>Very Frequently</option>
+                </select>
+                <button type="button" class="btn btn-secondary next-btn">Next</button>
+
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How often do you listen to Gospel songs?</h5>
+                            
+                            <select name="Frequency_Gospel" id="Frequency_Gospel" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="question" style="display: none;">
+                <h5 class="card-title">How often do you listen to Hip hop songs?</h5>
+                
+                <select name="Frequency_Hip_hop" id="Frequency_Hip_hop" required="required">
+                    <option value=1>Rarely</option>
+                    <option value=2>Sometimes</option>
+                    <option value=3>Never</option>
+                    <option value=4>Very Frequently</option>
+                </select>
+                <button type="button" class="btn btn-secondary next-btn">Next</button>
+            
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How often do you listen to Hip hop songs?</h5>
+                            
+                            <select name="Frequency_Hip_hop" id="Frequency_Hip_hop" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>  
+            <div class="question" style="display: none;">
+                <h5 class="card-title">How often do you listen to Jazz songs?</h5>
+                
+                <select name="Frequency_Jazz" id="Frequency_Jazz" required="required">
+                    <option value=1>Rarely</option>
+                    <option value=2>Sometimes</option>
+                    <option value=3>Never</option>
+                    <option value=4>Very Frequently</option>
+                </select>
+                <button type="button" class="btn btn-secondary next-btn">Next</button>
+            
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How often do you listen to Jazz songs?</h5>
+                            
+                            <select name="Frequency_Jazz" id="Frequency_Jazz" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br> 
+            <div class="question" style="display: none;">
+                <h5 class="card-title">How often do you listen to k pop songs?</h5>
+                
+                <select name="Frequency_K_pop" id="Frequency_K_pop" required="required">
+                    <option value=1>Rarely</option>
+                    <option value=2>Sometimes</option>
+                    <option value=3>Never</option>
+                    <option value=4>Very Frequently</option>
+                </select>
+                <button type="button" class="btn btn-secondary next-btn">Next</button>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How often do you listen to k pop songs?</h5>
+                            
+                            <select name="Frequency_K_pop" id="Frequency_K_pop" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br> 
+
+            <div class="question" style="display: none;">
+                <h5 class="card-title">How often do you listen to Latin songs?</h5>
+                            
+                            <select name="Frequency_Latin" id="Frequency_[Latin]" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary next-btn">Next</button>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How often do you listen to Latin songs?</h5>
+                            
+                            <select name="Frequency_Latin" id="Frequency_[Latin]" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+
+            <div class="question" style="display: none;">
+                <h5 class="card-title">How often do you listen to Lofi songs?</h5>
+                            
+                            <select name="Frequency_Lofi" id="Frequency_Lofi" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary next-btn">Next</button>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How often do you listen to Lofi songs?</h5>
+                            
+                            <select name="Frequency_Lofi" id="Frequency_Lofi" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br> 
+            <div class="question" style="display: none;">
+                <h5 class="card-title">How often do you listen to Metal songs?</h5>
+                            
+                            <select name="Frequency_Metal" id="Frequency_Metal" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary next-btn">Next</button>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How often do you listen to Metal songs?</h5>
+                            
+                            <select name="Frequency_Metal" id="Frequency_Metal" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+
+            <div class="question" style="display: none;">
+                <h5 class="card-title">How often do you listen to Pop songs?</h5>
+                            
+                            <select name="Frequency_Pop" id="Frequency_Pop" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary next-btn">Next</button>
+
+
+
+            </div>
+             <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How often do you listen to Pop songs?</h5>
+                            
+                            <select name="Frequency_Pop" id="Frequency_Pop" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br> 
+            <div class="question" style="display: none;">
+                <h5 class="card-title">How often do you listen to R&B songs?</h5>
+                            
+                            <select name="Frequency_RB" id="Frequency_RB" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary next-btn">Next</button>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How often do you listen to R&B songs?</h5>
+                            
+                            <select name="Frequency_RB" id="Frequency_RB" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="question" style="display: none;">
+                <h5 class="card-title">How often do you listen to Rock songs?</h5>
+                            
+                            <select name="Frequency_Rock" id="Frequency_Rock" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary next-btn">Next</button>
+
+
+            </div>
+             <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How often do you listen to Rock songs?</h5>
+                            
+                            <select name="Frequency_Rock" id="Frequency_Rock" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="question" style="display: none;">
+                <h5 class="card-title">How often do you listen to video game music?</h5>
+                            
+                            <select name="Frequency_Video_game_music" id="Frequency_Video_game_music" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary next-btn">Next</button>
+
+
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How often do you listen to video game music?</h5>
+                            
+                            <select name="Frequency_Video_game_music" id="Frequency_Video_game_music" required="required">
+                                <option value=1>Rarely</option>
+                                <option value=2>Sometimes</option>
+                                <option value=3>Never</option>
+                                <option value=4>Very Frequently</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="question" style="display: none;">
+                <h5 class="card-title">How often do you feel you have insomnia, Rate out of 10. 1 is lower, 10 is highest.</h5>
+                            
+                            <select name="Insomnia" id="Insomnia" required="required">
+                                <option value=-1>Please select a option</option>
+                                <option value=0>0</option>
+                                <option value=1>1</option>
+                                <option value=2>2</option>
+                                <option value=3>3</option>
+                                <option value=4>4</option>
+                                <option value=5>5</option>
+                                <option value=6>6</option>
+                                <option value=7>7</option>
+                                <option value=8>8</option>
+                                <option value=9>9</option>
+                                <option value=10>10</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary next-btn">Next</button>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How often do you feel you have insomnia, Rate out of 10. 1 is lower, 10 is highest.</h5>
+                            
+                            <select name="Insomnia" id="Insomnia" required="required">
+                                <option value=-1>Please select a option</option>
+                                <option value=0>0</option>
+                                <option value=1>1</option>
+                                <option value=2>2</option>
+                                <option value=3>3</option>
+                                <option value=4>4</option>
+                                <option value=5>5</option>
+                                <option value=6>6</option>
+                                <option value=7>7</option>
+                                <option value=8>8</option>
+                                <option value=9>9</option>
+                                <option value=10>10</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br> 
+
+            <div class="question" style="display: none;">
+                <h5 class="card-title">How often do you feel you have OCD, Rate out of 10. 1 is lower, 10 is highest.</h5>
+                            
+                            <select name="OCD" id="OCD" required="required">
+                                <option value=-1>Please select a option</option>
+                                <option value=0>0</option>
+                                <option value=1>1</option>
+                                <option value=2>2</option>
+                                <option value=3>3</option>
+                                <option value=4>4</option>
+                                <option value=5>5</option>
+                                <option value=6>6</option>
+                                <option value=7>7</option>
+                                <option value=8>8</option>
+                                <option value=9>9</option>
+                                <option value=10>10</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary next-btn">Next</button>
+
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">How often do you feel you have OCD, Rate out of 10. 1 is lower, 10 is highest.</h5>
+                            
+                            <select name="OCD" id="OCD" required="required">
+                                <option value=-1>Please select a option</option>
+                                <option value=0>0</option>
+                                <option value=1>1</option>
+                                <option value=2>2</option>
+                                <option value=3>3</option>
+                                <option value=4>4</option>
+                                <option value=5>5</option>
+                                <option value=6>6</option>
+                                <option value=7>7</option>
+                                <option value=8>8</option>
+                                <option value=9>9</option>
+                                <option value=10>10</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br> 
+            <div class="question" style="display: none;">
+                <h5 class="card-title">Do listening to music help you feel better?</h5>
+                            
+                            <select name="Music_effects" id="Music_effects" required="required">
+                                <option value=1>Improve</option>
+                                <option value=2>No effect</option>
+                                <option value=3>Worsen</option>
+                            </select>
+                            <button type="button" class="btn btn-secondary next-btn">Next</button>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Do listening to music help you feel better?</h5>
+                            
+                            <select name="Music_effects" id="Music_effects" required="required">
+                                <option value=1>Improve</option>
+                                <option value=2>No effect</option>
+                                <option value=3>Worsen</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br> 
+            
+
+            <div class="question" style="display: none;">
+                <input type="submit" value="Submit" class="btn btn-secondary">
+            </div>
+        </form>
+
+            <input type="submit" value="Submit" class="btn btn-secondary">
+        </form> 
+
+
+        <div id="predictionResult">
+            <h3>{{ prediction_text }}</h3>
+        </div>
+        
+        <h3>{{ prediction_text }}</h3> 
+
+        
+
+    </div>
+
+
+
+
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+</body>
+<script>
+    $(document).ready(function () {
+        // Hide all questions initially except the first one
+        $('.question').not(':first').hide();
+
+        $('.next-btn').click(function () {
+            var currentQuestion = $(this).closest('.question');
+            var nextQuestion = currentQuestion.next('.question');
+
+            currentQuestion.hide();
+            nextQuestion.show();
+        });
+
+        // Show submit button when all questions are answered
+        $('.next-btn').last().click(function () {
+            $('#submitQuestion').show();
+        });
+    });
+</script>
+
+
+</html>

@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    
+    <title>Sentiment Analysis</title>
+</head>
+
+ <body class="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 dark:from-purple-900 dark:via-pink-700 dark:to-red-700 overflow-hidden relative font-sans">
+
+    <header class="w-full py-4 px-6 flex justify-between items-center bg-purple-500 dark:bg-purple-700 shadow-md">
+        <div class="text-white text-2xl font-bold">Sentiment Analysis</div>
+        <nav class="flex space-x-4 items-center">
+            <!-- Include navigation links if needed -->
+        </nav>
+    </header>
+
+    <div class="container mx-auto my-8 p-8 bg-white shadow-lg rounded-md text-gray-800">
+        <h1 class="text-3xl font-bold mb-4 text-indigo-700">Sentiment Analysis</h1>
+        <form method="post" action="/passage_result">
+            <div class="mb-4">
+                <label for="text" class="block text-sm font-medium text-gray-600">Enter Text:</label>
+                <textarea name="text" id="text" rows="4" cols="50"
+                    class="mt-1 p-2 block w-full border rounded-md focus:outline-none focus:border-indigo-500"
+                    required></textarea>
+            </div>
+            <button type="submit"
+                class="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
+                Submit
+            </button>
+        </form>
+        {% if text %}
+        <div class="mt-8">
+            <p class="text-lg text-gray-800">Entered Text: {{ text }}</p>
+            <p class="text-lg text-indigo-700">Sentiment: {{ sentiment }}</p>
+        </div>
+        {% endif %}
+    </div>
+   
+
+</body>
+
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health</title>
+
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<!-- <body class="bg-gray-100"> -->
+     <body class="min-h-screen bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 dark:from-purple-900 dark:via-pink-700 dark:to-red-700 relative">
+
+    <!-- Navigation -->
+    <nav class="bg-indigo-600 text-white p-8">
+        <div class="container mx-auto">
+            <center>
+                <a class="text-2xl font-bold" href="/">Detecting Mental Health through Songs</a>
+            </center>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <!-- <div class="container mx-auto mt-8"> -->
+
+    <div class="max-w-2xl mx-auto" class="max-w-2xl mx-auto mt-8 text-white">
+
+        <!-- <form action="/songs_predict" method="post" class="max-w-md mx-auto p-1  "> -->
+            <form action="/songs_predict" method="post">
+
+            <!-- How Many Hours do you listen to music? -->
+            <div class="mb-6">
+                <label for="Hours_per_day" class="block text-sm font-medium text-white-600" style="font-size: 20px;">How Many Hours do you listen to music?</label>
+                <input type="number" min="1" max="100" id="Hours_per_day" name="Hours_per_day" required
+                    class="mt-1 p-2 w-full border rounded-md">
+            </div>
+
+            <!-- What is your Favorite genre? -->
+            <div class="mb-6">
+                <label for="Fav_genre" class="block text-sm font-medium text-gray-600" style="font-size:20px;">What is your Favorite genre?</label>
+                <select name="Fav_genre" id="Fav_genre" required class="mt-1 p-2 w-full border rounded-md">
+                    <option value="Fav_genre_Classical">Classical Songs</option>
+                    <option value="Fav_genre_Country">Songs from specifc country</option>
+                    <option value="Fav_genre_EDM">EDM</option>
+                    <option value="Fav_genre_Folk">Folk songs</option>
+                    <option value="Fav_genre_Hip_hop">Hip Hop songs</option>
+                    <option value="Fav_genre_Jazz">Hip Hop songs</option>
+                    <option value="Fav_genre_K_pop">K pop songs</option>
+                    <option value="Fav_genre_Latin">Latin songs</option>
+                    <option value="Fav_genre_Lofi">LOFI songs</option>
+                    <option value="Fav_genre_Metal">Metal songs</option>
+                    <option value="Fav_genre_Pop">Pop songs</option>
+                    <option value="Fav_genre_RB">R&B songs</option>
+                    <option value="Fav_genre_Rap">Rap songs</option>
+                    <option value="Fav_genre_Rock">Rock songs</option>
+                    <option value="Fav_genre_Video game music">Video game composed songs</option>
+                </select>
+            </div>
+
+            <!-- Do You Listen to foreign countries composed songs? -->
+            <div class="mb-6">
+                <label for="Foreign_languages" class="block text-sm font-medium text-gray-600">Do You Listen to foreign countries composed songs?</label>
+                <select name="Foreign_languages" id="Foreign_languages" required class="mt-1 p-2 w-full border rounded-md">
+                    <option value="Foreign_languages_Yes">Yes</option>
+                    <option value="Foreign_languages_No">No</option>
+                </select>
+            </div>
+
+            <!-- How often do you listen to classical songs? -->
+            <div class="mb-6">
+                <label for="Frequency_Classical" class="block text-sm font-medium text-gray-600">How often do you listen to classical songs?</label>
+                <select name="Frequency_Classical" id="Frequency_Classical" required class="mt-1 p-2 w-full border rounded-md">
+                    <option value="1">Rarely</option>
+                    <option value="2">Sometimes</option>
+                    <option value="3">Never</option>
+                    <option value="4">Very Frequently</option>
+                </select>
+            </div>
+
+            <!-- How often do you listen to Other country songs? -->
+            <div class="mb-6">
+                <label for="Frequency_Country" class="block text-sm font-medium text-gray-600">How often do you listen to Other country songs?</label>
+                <select name="Frequency_Country" id="Frequency_Country" required class="mt-1 p-2 w-full border rounded-md">
+                    <option value="1">Rarely</option>
+                    <option value="2">Sometimes</option>
+                    <option value="3">Never</option>
+                    <option value="4">Very Frequently</option>
+                </select>
+            </div>
+
+            <!-- Additional questions... -->
+            <!-- How often do you listen to EDM songs? -->
+<div class="mb-6">
+    <label for="Frequency_EDM" class="block text-sm font-medium text-gray-600">How often do you listen to EDM songs?</label>
+    <select name="Frequency_EDM" id="Frequency_EDM" required class="mt-1 p-2 w-full border rounded-md">
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Never</option>
+        <option value="4">Very Frequently</option>
+    </select>
+</div>
+
+<!-- How often do you listen to Folk songs? -->
+<div class="mb-6">
+    <label for="Frequency_Folk" class="block text-sm font-medium text-gray-600">How often do you listen to Folk songs?</label>
+    <select name="Frequency_Folk" id="Frequency_Folk" required class="mt-1 p-2 w-full border rounded-md">
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Never</option>
+        <option value="4">Very Frequently</option>
+    </select>
+</div>
+
+<!-- How often do you listen to Gospel songs? -->
+<div class="mb-6">
+    <label for="Frequency_Gospel" class="block text-sm font-medium text-gray-600">How often do you listen to Gospel songs?</label>
+    <select name="Frequency_Gospel" id="Frequency_Gospel" required class="mt-1 p-2 w-full border rounded-md">
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Never</option>
+        <option value="4">Very Frequently</option>
+    </select>
+</div>
+
+<!-- How often do you listen to Hip hop songs? -->
+<div class="mb-6">
+    <label for="Frequency_Hip_hop" class="block text-sm font-medium text-gray-600">How often do you listen to Hip hop songs?</label>
+    <select name="Frequency_Hip_hop" id="Frequency_Hip_hop" required class="mt-1 p-2 w-full border rounded-md">
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Never</option>
+        <option value="4">Very Frequently</option>
+    </select>
+</div>
+
+<!-- How often do you listen to Jazz songs? -->
+<div class="mb-6">
+    <label for="Frequency_Jazz" class="block text-sm font-medium text-gray-600">How often do you listen to Jazz songs?</label>
+    <select name="Frequency_Jazz" id="Frequency_Jazz" required class="mt-1 p-2 w-full border rounded-md">
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Never</option>
+        <option value="4">Very Frequently</option>
+    </select>
+</div>
+
+<!-- How often do you listen to K pop songs? -->
+<div class="mb-6">
+    <label for="Frequency_K_pop" class="block text-sm font-medium text-gray-600">How often do you listen to K pop songs?</label>
+    <select name="Frequency_K_pop" id="Frequency_K_pop" required class="mt-1 p-2 w-full border rounded-md">
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Never</option>
+        <option value="4">Very Frequently</option>
+    </select>
+</div>
+
+<!-- How often do you listen to Latin songs? -->
+<div class="mb-6">
+    <label for="Frequency_Latin" class="block text-sm font-medium text-gray-600">How often do you listen to Latin songs?</label>
+    <select name="Frequency_Latin" id="Frequency_Latin" required class="mt-1 p-2 w-full border rounded-md">
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Never</option>
+        <option value="4">Very Frequently</option>
+    </select>
+</div>
+
+<!-- How often do you listen to Lofi songs? -->
+<div class="mb-6">
+    <label for="Frequency_Lofi" class="block text-sm font-medium text-gray-600">How often do you listen to Lofi songs?</label>
+    <select name="Frequency_Lofi" id="Frequency_Lofi" required class="mt-1 p-2 w-full border rounded-md">
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Never</option>
+        <option value="4">Very Frequently</option>
+    </select>
+</div>
+
+<!-- How often do you listen to Metal songs? -->
+<div class="mb-6">
+    <label for="Frequency_Metal" class="block text-sm font-medium text-gray-600">How often do you listen to Metal songs?</label>
+    <select name="Frequency_Metal" id="Frequency_Metal" required class="mt-1 p-2 w-full border rounded-md">
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Never</option>
+        <option value="4">Very Frequently</option>
+    </select>
+</div>
+
+<!-- How often do you listen to Pop songs? -->
+<div class="mb-6">
+    <label for="Frequency_Pop" class="block text-sm font-medium text-gray-600">How often do you listen to Pop songs?</label>
+    <select name="Frequency_Pop" id="Frequency_Pop" required class="mt-1 p-2 w-full border rounded-md">
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Never</option>
+        <option value="4">Very Frequently</option>
+    </select>
+</div>
+
+<!-- How often do you listen to R&B songs? -->
+<div class="mb-6">
+    <label for="Frequency_RB" class="block text-sm font-medium text-gray-600">How often do you listen to R&B songs?</label>
+    <select name="Frequency_RB" id="Frequency_RB" required class="mt-1 p-2 w-full border rounded-md">
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Never</option>
+        <option value="4">Very Frequently</option>
+    </select>
+</div>
+
+<!-- How often do you listen to Rock songs? -->
+<div class="mb-6">
+    <label for="Frequency_Rock" class="block text-sm font-medium text-gray-600">How often do you listen to Rock songs?</label>
+    <select name="Frequency_Rock" id="Frequency_Rock" required class="mt-1 p-2 w-full border rounded-md">
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Never</option>
+        <option value="4">Very Frequently</option>
+    </select>
+</div>
+
+<!-- How often do you listen to video game music? -->
+<div class="mb-6">
+    <label for="Frequency_Video_game_music" class="block text-sm font-medium text-gray-600">How often do you listen to video game music?</label>
+    <select name="Frequency_Video_game_music" id="Frequency_Video_game_music" required class="mt-1 p-2 w-full border rounded-md">
+        <option value="1">Rarely</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Never</option>
+        <option value="4">Very Frequently</option>
+    </select>
+</div>
+
+<!-- How often do you feel you have insomnia? -->
+<div class="mb-6">
+    <label for="Insomnia" class="block text-sm font-medium text-gray-600">How often do you feel you have insomnia? Rate out of 10. 1 is lower, 10 is highest.</label>
+    <select name="Insomnia" id="Insomnia" required class="mt-1 p-2 w-full border rounded-md">
+        <option value="-1">Please select an option</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+</div>
+
+<!-- How often do you feel you have OCD? -->
+<div class="mb-6">
+    <label for="OCD" class="block text-sm font-medium text-gray-600">How often do you feel you have OCD? Rate out of 10. 1 is lower, 10 is highest.</label>
+    <select name="OCD" id="OCD" required class="mt-1 p-2 w-full border rounded-md">
+        <option value="-1">Please select an option</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+</div>
+
+<!-- Do listening to music help you feel better? -->
+<div class="mb-6">
+    <label for="Music_effects" class="block text-sm font-medium text-gray-600">Do listening to music help you feel better?</label>
+    <select name="Music_effects" id="Music_effects" required class="mt-1 p-2 w-full border rounded-md">
+        <option value="1">Improve</option>
+        <option value="2">No effect</option>
+        <option value="3">Worsen</option>
+    </select>
+</div>
+
+            <!-- Submit button -->
+            <div class="mt-8">
+                <input type="submit" value="Submit" class="bg-indigo-600 text-white p-2 rounded-md cursor-pointer">
+            </div>
+
+        </form>
+
+        <!-- Prediction result display -->
+        <h3 class="mt-8">{{ prediction_text }}</h3>
+        <!-- Add your prediction result display here -->
+
+    </div>
+
+
+</body>
+
+</html>
